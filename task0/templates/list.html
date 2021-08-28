@@ -1,22 +1,30 @@
+<!DOCTYPE html>
+<h1>Welcome to To-do List</h2>
+<p>Enter your Task and serial number</p>
+
 <form method="POST" action="/">
     {% csrf_token %}
-    {{form.title}}
+    <p>You are ? {{form.user}}</p>
+    <p>Sr No.(Integer only){{form.number}}</p>
+    <p>Title : {{form.title}}</p>
     <input class="btn btn-info" type="submit" name="Create Task">
 </form>
+<h2>Already submitted tasks</h2>
 
 <div class="todo-list">
 
 {% for task in tasks %}
     <div class="item-row">
-        <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
-        <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
-
         {% if task.complete == True %}
         <strike>{{task}}</strike>
         {% else %}
         <span>{{task}}</span>
         {% endif %}
+        <p>
+        <a class="btn btn-sm btn-info" href="{% url 'update_task' task.id %}">Update</a>
+        <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+        </p>
+        <p>_______________</p>
     </div>
 {% endfor %}
-</div>
 </div>
