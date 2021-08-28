@@ -4,12 +4,16 @@ from .models import *
 from .forms import *
 
 def index(request):
+    user = UserForm(request.POST)
+    if user.is_valid():
+    	user.save()
+    	return redirect('/')
     tasks = Task.objects.all()
     form = TaskForm(request.POST)
     if form.is_valid():
         form.save()
         return redirect('/')
-    context = {'tasks':tasks,'form':form}
+    context = {'tasks':tasks,'form':form,'user':user}
     return render(request,'list.html',context)
 
 def updateTask(request,pk):

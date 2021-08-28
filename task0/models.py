@@ -1,7 +1,7 @@
 from django.db import models
 
 class User(models.Model):
-	name = models.CharField(max_length= 20,default='admin')
+	name = models.CharField(max_length= 20,default='Admin')
 	
 	def __str__(self):
 		return self.name
@@ -14,5 +14,5 @@ class Task(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null = True,blank=True)
 
     def __str__(self):
-        return (f"({self.number}) {self.title} by :({self.user})")
+        return (f"({self.number}) {self.title}  :({self.user})")
         
