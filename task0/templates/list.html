@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <h1>Welcome to To-do List</h2>
 
-<form method="POST" action="/">
-    {% csrf_token %}
-    <p>New User,first register name : {{user.name}}</p>
- <input class="btn btn-info" type="submit" name="Add User">
-</form>
 
 <form method="POST" action="/">
     {% csrf_token %}

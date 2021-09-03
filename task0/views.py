@@ -1,19 +1,15 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import *
-from .forms import *
+from .models import Task,NewUser
+from .forms import TaskForm
 
 def index(request):
-    user = UserForm(request.POST)
-    if user.is_valid():
-    	user.save()
-    	return redirect('/')
     tasks = Task.objects.all()
     form = TaskForm(request.POST)
     if form.is_valid():
         form.save()
         return redirect('/')
-    context = {'tasks':tasks,'form':form,'user':user}
+    context = {'tasks':tasks,'form':form}
     return render(request,'list.html',context)
 
 def updateTask(request,pk):
