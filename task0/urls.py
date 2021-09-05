@@ -18,6 +18,9 @@ from . import views
 
 urlpatterns = [
     path('', views.index,name='list'),
+    path('register/',views.registerPage,name='register'),
+    path('login/',views.loginPage,name='login'),
+    path('logout/',views.logoutPage,name='logout'),
     path('update_task/<str:pk>/', views.updateTask,name='update_task'),
     path('delete/<str:pk>/', views.deleteTask,name ='delete'),
 ]

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<h1>New Users need to register first</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+   <p> Username {{form.username}}</p>
+   <p>Email {{form.email}}</p>
+   <p>Password {{form.password1}}</p>
+   <p>Confirm Password {{form.password2}}</p>
+   <p>First name {{form.first_name}}</p>
+   <p>Last name {{form.last_name}}</p>
+   <p>Phone Number {{form.phone_no}}</p>
+    <input class="btn btn-info" type = "submit" name = "CreateUser">
+</form>
+
+<font color = 'red'>{{form.errors}}</font>
+
+<p>Already registered?</p>
+<a href='/login'>Sign In</a>

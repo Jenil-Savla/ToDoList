@@ -9,12 +9,11 @@ from .managers import CustomUserManager
 #from datetime import date
 
 class NewUser(AbstractUser):
-    username = models.CharField(max_length = 50, blank = True, null = True, unique = True)
+    username = models.CharField(max_length = 10, blank = True, null = True, unique = True)
     email = models.EmailField(_('email address'), unique = True)
     phone_no = models.CharField(max_length = 10)
     
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+    REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
     
     objects = CustomUserManager()
     
