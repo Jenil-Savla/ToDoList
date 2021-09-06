@@ -12,7 +12,7 @@ def registerPage(request):
 	if request.user.is_authenticated:
 		return redirect('/')
 	else:
-		form = NewUserCreationForm(request.POST)
+		form = NewUserCreationForm(request.POST,request.FILES)
 		if form.is_valid():
 			form.save()
 			messages.success(request,'User created successfully!')
@@ -44,6 +44,8 @@ def logoutPage(request):
 @login_required(login_url = 'login')
 def index(request):
     tasks = Task.objects.all()
+    for task in tasks:
+    	task.duechecker()
     form = TaskForm(request.POST)
     if form.is_valid():
         form.save()

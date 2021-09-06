@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
 <p align = "right">{{user.username}} </p>
-<p align = "right"><a href="logout" >LogOut</a></p>
+<p align = "right"><a href="logout" >LogOut</a>
+</p>
 
 <h1>Welcome to To-do List</h1>
 
@@ -9,6 +10,7 @@
     {% csrf_token %}
     <p>Sr No.(Integer only){{form.number}}</p>
     <p>Title : {{form.title}}</p>
+    <p>Deadline(MM-DD-YYYY HH:MM:SS) : {{form.due}}</p>
     <input type="submit" name="Create Task">
 </form>
 <h2>Already submitted tasks</h2>
@@ -30,3 +32,7 @@
     </div>
 {% endfor %}
 </div>
+
+{% if request.user.profile_pic %}
+    <img src="{{request.user.profile_pic.url}}" alt="profile photo">
+{% endif %}

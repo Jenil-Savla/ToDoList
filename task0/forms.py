@@ -6,12 +6,11 @@ from .models import Task,NewUser
 class NewUserChangeForm(UserChangeForm):
 	class Meta:
 		model = NewUser
-		fields = 'username',
-		
+		fields = '__all__'
 class NewUserCreationForm(UserCreationForm):
 	class Meta:
 		model = NewUser
-		fields =['email','username','password1','password2', 'first_name', 'last_name', 'phone_no']
+		fields =['email','username','password1','password2', 'first_name', 'last_name', 'phone_no','profile_pic']
 
 class TaskForm(forms.ModelForm):
     title = forms.CharField(max_length = 100)
