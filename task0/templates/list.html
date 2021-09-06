@@ -14,7 +14,7 @@
 
 <h1>Welcome to To-do List</h1>
 
-<form method="POST" action="/">
+<form method="POST" action="/" enctype="multipart/form-data">
     {% csrf_token %}
     <p>Sr No.(Integer only){{form.number}}</p>
     <p>Title : {{form.title}}</p>

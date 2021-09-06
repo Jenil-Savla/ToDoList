@@ -30,7 +30,7 @@ class Task(models.Model):
     
     def duechecker(self):
     	if self.due <= timezone.now():
-    		self.complete = True
+    		self.title += '(Past Due)'
     	else:
     		pass
 
