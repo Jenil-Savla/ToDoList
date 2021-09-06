@@ -12,7 +12,7 @@ class NewUser(AbstractUser):
     username = models.CharField(max_length = 10, blank = True, null = True, unique = True)
     email = models.EmailField(_('email address'), unique = True)
     phone_no = models.CharField(max_length = 10)
-    profile_pic = models.ImageField(null = True ,blank=True, default = './media/arcreactor.png')
+    profile_pic = models.ImageField(blank=True, default = 'arcreactor.png')
     
     REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
     

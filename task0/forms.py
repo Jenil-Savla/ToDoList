@@ -6,7 +6,8 @@ from .models import Task,NewUser
 class NewUserChangeForm(UserChangeForm):
 	class Meta:
 		model = NewUser
-		fields = '__all__'
+		fields = ['email','username', 'first_name', 'last_name', 'phone_no','profile_pic']
+
 class NewUserCreationForm(UserCreationForm):
 	class Meta:
 		model = NewUser

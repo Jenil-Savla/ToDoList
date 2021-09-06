@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 
-<p align = "right">{{user.username}} </p>
-<p align = "right"><a href="logout" >LogOut</a>
+<p align = "right">
+{% if request.user.profile_pic %}
+    <img height="100" src="{{user.profile_pic.url}}" alt="profile photo">
+{% endif %}<br><font size="5">
+    {{user.username}} &nbsp;</font>
+</p>
+<p align = "right"><a href="logout" >
+<font size="5">
+    LogOut &nbsp;</font>
+</a>
 </p>
 
 <h1>Welcome to To-do List</h1>
@@ -11,6 +19,7 @@
     <p>Sr No.(Integer only){{form.number}}</p>
     <p>Title : {{form.title}}</p>
     <p>Deadline(MM-DD-YYYY HH:MM:SS) : {{form.due}}</p>
+    <p>(Timezone as per UTC)</p>
     <input type="submit" name="Create Task">
 </form>
 <h2>Already submitted tasks</h2>
@@ -32,7 +41,3 @@
     </div>
 {% endfor %}
 </div>
-
-{% if request.user.profile_pic %}
-    <img src="{{request.user.profile_pic.url}}" alt="profile photo">
-{% endif %}
