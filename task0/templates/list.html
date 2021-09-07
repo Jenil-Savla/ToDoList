@@ -2,14 +2,15 @@
 
 <p align = "right">
 {% if request.user.profile_pic %}
-    <img height="100" src="{{user.profile_pic.url}}" alt="profile photo">
-{% endif %}<br><font size="5">
-    {{user.username}} &nbsp;</font>
+    <img height="100" src="{{user.profile_pic.url}}" alt="profile photo">&nbsp;
+{% endif %}<font size="5"><br>
+    {{user.username}} &nbsp; &nbsp;</font>
 </p>
 <p align = "right"><a href="logout" >
 <font size="5">
-    LogOut &nbsp;</font>
+    LogOut</font>
 </a>
+ &nbsp;&nbsp;
 </p>
 
 <hr>
@@ -18,10 +19,10 @@
 
 <form method="POST" action="/">
     {% csrf_token %}
-    <p>Sr No.(Integer only){{form.number}}</p>
-    <p>Title : {{form.title}}</p>
-    <p>Deadline(MM-DD-YYYY HH:MM:SS) : {{form.due}}</p>
-    <p>(Timezone as per UTC)</p>
+    <p> Priority : {{form.priority}}</p>
+    <p> Title : {{form.title}}</p>
+    <p> Deadline(MM-DD-YYYY HH:MM:SS) : {{form.due}}</p>
+    <font size = "4"> (Timezone as per UTC) </font><br><br>
     <input type="submit" value="Create Task">
 </form>
 

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+<body align = "center">
+
 <h1>Update Task</h1>
 
 <form method="POST" action="">
 	{% csrf_token %}
-
-	{{form}}
+	<p>Priority : {{form.priority}}</p>
+    <p>Title : {{form.title}}</p>
+    <p>Due : {{form.due}}</p>
 	<input type="submit" value="Update Task">
-	
-	
 </form>
+</body>

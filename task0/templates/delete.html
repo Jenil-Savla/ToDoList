@@ -1,8 +1,12 @@
 <!DOCTYPE html>
+<body align = "center">
+<h2>Delete Task </h2>
+
 <p>Are you sure you want to delete "{{item}}"?</p>
 
-<p align = "center"><form method="POST" action="">
+<form method="POST" action="">
 	{% csrf_token %}
 	<input type="submit" value="Confirm">
 	<a href="{% url 'list' %}" >Cancel</a>
-</form></p>
+</form>
+</body>

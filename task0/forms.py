@@ -17,4 +17,4 @@ class TaskForm(forms.ModelForm):
     title = forms.CharField(max_length = 100)
     class Meta:
         model = Task
-        fields = ['number','title','complete','due']
+        fields = ['priority','title','complete','due']
