@@ -9,7 +9,7 @@ from .managers import CustomUserManager
 from django.utils import timezone
 
 class NewUser(AbstractUser):
-    username = models.CharField(max_length = 10, blank = True, null = True, unique = True)
+    username = models.CharField(max_length = 10, unique = True)
     email = models.EmailField(_('email address'), unique = True)
     phone_no = models.CharField(max_length = 10)
     profile_pic = models.ImageField(blank=True, default = 'arcreactor.png')
@@ -22,6 +22,7 @@ class NewUser(AbstractUser):
     	return self.email
 
 class Task(models.Model):
+    user = models.ForeignKey('NewUser', on_delete = models.CASCADE, null = True)
     number = models.IntegerField(default =0)
     title = models.CharField(max_length=100)
     complete = models.BooleanField(default=False)

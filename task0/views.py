@@ -42,15 +42,17 @@ def logoutPage(request):
 
 @login_required(login_url = 'login')
 def index(request):
-    tasks = Task.objects.all()
+    tasks = request.user.task_set.all()
     for task in tasks:
     	task.duechecker()
     form = TaskForm(request.POST)
+    form.instance.user = request.user
     if form.is_valid():
         form.save()
         return redirect('/')
     context = {'tasks':tasks,'form':form}
     return render(request,'list.html',context)
+    
 
 @login_required(login_url = 'login')
 def updateTask(request,pk):
